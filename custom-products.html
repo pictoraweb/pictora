@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Products - PICTORA Photography</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="navbar-brand">
+                <img src="images/logo.png" alt="PICTORA Logo" class="navbar-logo">
+                <span class="gradient-text">PICTORA</span>
+            </a>
+            <ul class="navbar-menu">
+                <li><a href="index.html" class="navbar-link">Home</a></li>
+                <li><a href="about.html" class="navbar-link">About</a></li>
+                <li><a href="services.html" class="navbar-link">Services</a></li>
+                <li><a href="portfolio.html" class="navbar-link">Portfolio</a></li>
+                <li><a href="packages.html" class="navbar-link">Packages</a></li>
+                <li><a href="contact.html" class="navbar-link">Contact</a></li>
+                <li class="navbar-dropdown">
+                    <div class="dropdown-toggle navbar-link">More ▾</div>
+                    <ul class="dropdown-menu">
+                        <li><a href="payment.html" class="dropdown-item">Payment</a></li>
+                        <li><a href="policy.html" class="dropdown-item">Policy</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="navbar-toggle"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+    
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <span class="gradient-text" style="font-size: 1.5rem; font-weight: bold;">PICTORA</span>
+            <span class="mobile-close">✕</span>
+        </div>
+        <ul class="mobile-menu-list">
+            <li class="mobile-menu-item"><a href="index.html" class="mobile-menu-link">Home</a></li>
+            <li class="mobile-menu-item"><a href="about.html" class="mobile-menu-link">About</a></li>
+            <li class="mobile-menu-item"><a href="services.html" class="mobile-menu-link">Services</a></li>
+            <li class="mobile-menu-item"><a href="portfolio.html" class="mobile-menu-link">Portfolio</a></li>
+            <li class="mobile-menu-item"><a href="packages.html" class="mobile-menu-link">Packages</a></li>
+            <li class="mobile-menu-item"><a href="contact.html" class="mobile-menu-link">Contact</a></li>
+            <li class="mobile-menu-item"><a href="payment.html" class="mobile-menu-link">Payment</a></li>
+            <li class="mobile-menu-item"><a href="policy.html" class="mobile-menu-link">Policy</a></li>
+        </ul>
+    </div>
+    <div class="mobile-overlay"></div>
+
+    <section class="section">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="breadcrumb-separator">›</span>
+                <a href="services.html">Services</a>
+                <span class="breadcrumb-separator">›</span>
+                <span>Custom Products</span>
+            </div>
+            
+            <h1 class="section-title gradient-text">Custom Products Order</h1>
+            <p class="section-subtitle">Personalized photo products and professional editing services</p>
+            
+            <div class="glass-card" style="max-width: 600px; margin: 2rem auto; padding: 2rem;">
+                <h2 style="margin-bottom: 1.5rem;">Place Your Order</h2>
+                
+                <div class="form-group">
+                    <label class="form-label required">Select Product Type</label>
+                    <select id="productType" class="form-select" required>
+                        <option value="">Choose a product...</option>
+                        <option value="photoframe">Photo Frame</option>
+                        <option value="editing">Photo Editing</option>
+                        <option value="mug">Mug Customisation</option>
+                        <option value="keytag">Key Tags / Custom Gifts</option>
+                        <option value="suitcasealbum">Suitcase Album</option>
+                    </select>
+                </div>
+                
+                <div id="productDetails" style="display: none;">
+                    <!-- Product-specific fields will be inserted here -->
+                </div>
+                
+                <div id="commonFields" style="display: none;">
+                    <div class="form-group">
+                        <label class="form-label required">Customer Name</label>
+                        <input type="text" id="customerName" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label required">WhatsApp Number</label>
+                        <input type="tel" id="whatsappNumber" class="form-input" placeholder="+94xxxxxxxxx" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" id="emailAddress" class="form-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label required">Delivery Address</label>
+                        <textarea id="deliveryAddress" class="form-textarea" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label required">Delivery Method</label>
+                        <select id="deliveryMethod" class="form-select" required>
+                            <option value="">Select delivery method...</option>
+                            <option value="pickup">Pickup from Office (Free)</option>
+                            <option value="local">Local Delivery - Kattankudy (LKR 100)</option>
+                            <option value="courier">Courier - Sri Lanka (LKR 500)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Additional Notes</label>
+                        <textarea id="additionalNotes" class="form-textarea" placeholder="Any special instructions..."></textarea>
+                    </div>
+                    
+                    <div class="glass-card" style="padding: 1rem; margin-bottom: 1.5rem; background: rgba(168, 85, 247, 0.1);">
+                        <p style="margin: 0; font-weight: 500;">📸 Photo Upload Instructions</p>
+                        <p style="margin: 0.5rem 0 0; font-size: 0.875rem; color: var(--color-text-secondary);">
+                            After placing your order, you'll receive WhatsApp instructions for submitting high-resolution photos.
+                        </p>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem;">
+                        <button onclick="placeOrder()" class="btn btn-primary btn-block">Place Order on WhatsApp</button>
+                        <button onclick="enquireProduct()" class="btn btn-outline btn-block">Enquire First</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem; color: var(--color-text-secondary);">
+                <p>Need help choosing? <a href="contact.html" style="color: var(--color-purple-accent); text-decoration: underline;">Contact us</a> for personalized recommendations</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <img src="images/logo.png" alt="PICTORA Logo" class="footer-logo">
+                    <h3>PICTORA</h3>
+                    <p class="footer-tagline">Capturing Moments, Creating Stories</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="payment.html">Payment</a></li>
+                        <li><a href="policy.html#privacy">Privacy Policy</a></li>
+                        <li><a href="policy.html#terms">Terms of Service</a></li>
+                        <li><a href="policy.html#refund">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column footer-contact">
+                    <h3>Contact</h3>
+                    <p>📱 WhatsApp: +94 78 992 9233</p>
+                    <p>📧 Email: pictoraofficial.lk</p>
+                    <p>📍 Kattankudy, Sri Lanka</p>
+                   <br>
+         <div class="footer-section">  
+    <h4>Follow Us</h4>  
+    <div style="display: flex; gap: 12px; margin-top: 15px;">  
+        <a href="https://www.facebook.com/share/1Xc4SdkyMV/" target="_blank"   
+           style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); font-size: 18px; transition: all 0.3s ease; text-decoration: none;"  
+           onmouseover="this.style.background='#1877f2'; this.style.borderColor='#1877f2'; this.style.color='white'; this.style.transform='translateY(-3px)';"  
+           onmouseout="this.style.background='rgba(255, 255, 255, 0.05)'; this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.color='rgba(255, 255, 255, 0.8)'; this.style.transform='translateY(0)';"  
+           title="Facebook">  
+            <i class="fab fa-facebook-f"></i>  
+        </a>  
+          
+        <a href="https://www.instagram.com/pic_tora_?igsh=MTNxcmhhdWd1NTA3Zg==" target="_blank"   
+           style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); font-size: 18px; transition: all 0.3s ease; text-decoration: none;"  
+           onmouseover="this.style.background='linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)'; this.style.borderColor='#e1306c'; this.style.color='white'; this.style.transform='translateY(-3px)';"  
+           onmouseout="this.style.background='rgba(255, 255, 255, 0.05)'; this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.color='rgba(255, 255, 255, 0.8)'; this.style.transform='translateY(0)';"  
+           title="Instagram">  
+            <i class="fab fa-instagram"></i>  
+        </a>  
+          
+        <a href="https://www.tiktok.com/@pictora_?_r=1&_t=ZS-93TOFRjoMjZ" target="_blank"   
+           style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); font-size: 18px; transition: all 0.3s ease; text-decoration: none;"  
+           onmouseover="this.style.background='#000000'; this.style.borderColor='#00f2ea'; this.style.color='#00f2ea'; this.style.transform='translateY(-3px)';"  
+           onmouseout="this.style.background='rgba(255, 255, 255, 0.05)'; this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.color='rgba(255, 255, 255, 0.8)'; this.style.transform='translateY(0)';"  
+           title="TikTok">  
+            <i class="fab fa-tiktok"></i>  
+        </a>  
+          
+        <a href="https://youtube.com/@pic_tora?si=rgOhpAOVcmwIbuFD" target="_blank"   
+           style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); font-size: 18px; transition: all 0.3s ease; text-decoration: none;"  
+           onmouseover="this.style.background='#ff0000'; this.style.borderColor='#ff0000'; this.style.color='white'; this.style.transform='translateY(-3px)';"  
+           onmouseout="this.style.background='rgba(255, 255, 255, 0.05)'; this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.color='rgba(255, 255, 255, 0.8)'; this.style.transform='translateY(0)';"  
+           title="YouTube">  
+            <i class="fab fa-youtube"></i>  
+        </a>  
+    </div>  
+</div>  
+<br>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 PICTORA. All Rights Reserved. | Designed by CRAKS Media Agency</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/whatsapp.js"></script>
+    <script>
+        document.getElementById('productType').addEventListener('change', function() {
+            const productType = this.value;
+            const detailsDiv = document.getElementById('productDetails');
+            const commonFields = document.getElementById('commonFields');
+            
+            if (productType) {
+                commonFields.style.display = 'block';
+                detailsDiv.style.display = 'block';
+                detailsDiv.innerHTML = getProductFields(productType);
+            } else {
+                commonFields.style.display = 'none';
+                detailsDiv.style.display = 'none';
+            }
+        });
+        
+        function getProductFields(type) {
+            const fields = {
+                photoframe: `
+                    <div class="form-group">
+                        <label class="form-label required">Frame Size</label>
+                        <select id="frameSize" class="form-select" required>
+                            <option value="">Select size...</option>
+                            <option value="4x6">4x6 inches - LKR 800</option>
+                            <option value="5x7">5x7 inches - LKR 1,000</option>
+                            <option value="A4">A4 inches - LKR 1,500</option>
+                            <option value="10x15">10x15 inches - LKR 2,000</option>
+                            <option value="12x15">12x15 inches - LKR 2,300</option>
+                            <option value="12x18">12x18 inches - LKR 2,800</option>
+                            <option value="16x24">16x24 inches - LKR 4,300</option>
+                            <option value="24x36">24x36 inches - LKR 6,500</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label required">Frame Type</label>
+                        <select class="form-select" required>
+                            <option value="wooden">Wooden Frame</option>
+                            <option value="metal">Metal Frame</option>
+                            <option value="acrylic">Acrylic Frame</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label required">Quantity</label>
+                        <input type="number" class="form-input" min="1" value="1" required>
+                    </div>
+                `,
+                editing: `
+                    <div class="form-group">
+                        <label class="form-label required">Number of Photos</label>
+                        <input type="number" class="form-input" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label required">Editing Type</label>
+                        <select class="form-select" required>
+                            <option value="basic">Basic Retouching - LKR 500/photo</option>
+                            <option value="advanced">Advanced Editing - LKR 1,000/photo</option>
+                            <option value="restoration">Photo Restoration - LKR 1,500/photo</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Editing Instructions</label>
+                        <textarea class="form-textarea" placeholder="Describe your editing requirements..."></textarea>
+                    </div>
+                `,
+                mug: `
+                    <div class="form-group">
+                        <label class="form-label required">Mug Type</label>
+                        <select class="form-select" required>
+                            <option value="standard">Standard Ceramic - LKR 1,000</option>
+                            <option value="magic">Magic Mug - LKR 1,500</option>
+                            <option value="travel">Travel Mug - LKR 1,800</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label required">Quantity</label>
+                        <input type="number" class="form-input" min="1" value="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Custom Text</label>
+                        <input type="text" class="form-input" placeholder="Text to print on mug">
+                    </div>
+                `,
+                keytag: `
+                    <div class="form-group">
+                        <label class="form-label required">Product Type</label>
+                        <select class="form-select" required>
+                            <option value="keychain">Photo Keychain - LKR 300</option>
+                            <option value="keytag">Photo Key Tag - LKR 500</option>
+                            <option value="magnet">Photo Magnet - LKR 400</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label required">Quantity</label>
+                        <input type="number" class="form-input" min="1" value="1" required>
+                    </div>
+                `,
+                suitcasealbum: `
+                    <div class="form-group">
+                        <label class="form-label required">Album Size</label>
+                        <select id="albumSize" class="form-select" required>
+                            <option value="">Select size...</option>
+                             <option value="medium">Medium (08x24 inches) - LKR 26,500</option>
+                            <option value="small">Small (10x24 inches) - LKR 28,000</option>
+                            <option value="medium">Medium (12x30 inches) - LKR 33,000</option>
+                            <option value="large">Large (12x36 inches) - LKR 36,000</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label required">Number of Sheets </label>
+                        <select class="form-select" required>
+                            <option value="20">20 Sheets (100 photos)</option>
+                            <option value="30">30 Sheets (150 photos) - +LKR X,XXX</option>
+                            <option value="40">40 Sheets (200 photos) - +LKR XX,XXX</option>
+                            <option value="50">50 Sheets (250 photos) - +LKR XX,XXX</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label required">Album Cover Type</label>
+                        <select class="form-select" required>
+                            <option value="leather">Premium Leather - Included</option>
+                            <option value="fabric">Fabric Cover - Included</option>
+                            <option value="custom">Custom Print Cover - +LKR 3,000</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label required">Handle Type</label>
+                        <select class="form-select" required>
+                            <option value="standard">Standard Handle</option>
+                            <option value="premium">Premium Metal Handle - +LKR 2,000</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Custom Text on Cover</label>
+                        <input type="text" class="form-input" placeholder="e.g., Our Wedding Day - 2024">
+                        <span class="form-help">Optional: Text to be embossed on the album cover</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Special Instructions</label>
+                        <textarea class="form-textarea" placeholder="Any specific design preferences or instructions..."></textarea>
+                    </div>
+                `
+            };
+            return fields[type] || '';
+        }
+        
+        function placeOrder() {
+            const productType = document.getElementById('productType').value;
+            const name = document.getElementById('customerName').value;
+            const whatsapp = document.getElementById('whatsappNumber').value;
+            
+            if (!productType || !name || !whatsapp) {
+                window.PICTORA.showToast('Please fill all required fields');
+                return;
+            }
+            
+            const message = `*NEW CUSTOM PRODUCT ORDER*%0A%0AProduct: ${productType}%0AName: ${name}%0AWhatsApp: ${whatsapp}%0A%0AI'll send product details and photos next.`;
+            window.PICTORA.WhatsApp.open(window.PICTORA.BUSINESS_WHATSAPP, message);
+        }
+        
+        function enquireProduct() {
+            const productType = document.getElementById('productType').value || 'custom products';
+            const message = `Hi! I'd like to enquire about ${productType}. Can you provide more details?`;
+            window.PICTORA.WhatsApp.open(window.PICTORA.BUSINESS_WHATSAPP, message);
+        }
+    </script>
+</body>
+</html>

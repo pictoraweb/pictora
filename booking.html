@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book your photography session with PICTORA">
+    <title>Booking - PICTORA Photography</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+              <link rel="icon" type="image/x-icon" href="images/logo.png">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="navbar-brand">
+                <img src="images/logo.png" alt="PICTORA Logo" class="navbar-logo">
+                <span class="gradient-text">PICTORA</span>
+            </a>
+            <ul class="navbar-menu">
+                <li><a href="index.html" class="navbar-link">Home</a></li>
+                <li><a href="about.html" class="navbar-link">About</a></li>
+                <li><a href="services.html" class="navbar-link">Services</a></li>
+                <li><a href="portfolio.html" class="navbar-link">Portfolio</a></li>
+                <li><a href="packages.html" class="navbar-link">Packages</a></li>
+                <li><a href="contact.html" class="navbar-link">Contact</a></li>
+                <li class="navbar-dropdown">
+                    <div class="dropdown-toggle navbar-link">More ▾</div>
+                    <ul class="dropdown-menu">
+                        <li><a href="payment.html" class="dropdown-item">Payment</a></li>
+                        <li><a href="policy.html" class="dropdown-item">Policy</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="navbar-toggle"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+    
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <span class="gradient-text" style="font-size: 1.5rem; font-weight: bold;">PICTORA</span>
+            <span class="mobile-close">✕</span>
+        </div>
+        <ul class="mobile-menu-list">
+            <li class="mobile-menu-item"><a href="index.html" class="mobile-menu-link">Home</a></li>
+            <li class="mobile-menu-item"><a href="about.html" class="mobile-menu-link">About</a></li>
+            <li class="mobile-menu-item"><a href="services.html" class="mobile-menu-link">Services</a></li>
+            <li class="mobile-menu-item"><a href="portfolio.html" class="mobile-menu-link">Portfolio</a></li>
+            <li class="mobile-menu-item"><a href="packages.html" class="mobile-menu-link">Packages</a></li>
+            <li class="mobile-menu-item"><a href="contact.html" class="mobile-menu-link">Contact</a></li>
+            <li class="mobile-menu-item"><a href="payment.html" class="mobile-menu-link">Payment</a></li>
+            <li class="mobile-menu-item"><a href="policy.html" class="mobile-menu-link">Policy</a></li>
+        </ul>
+    </div>
+    <div class="mobile-overlay"></div>
+
+    <section class="section">
+        <div class="container">
+            <div class="breadcrumb"></div>
+            <h1 class="section-title gradient-text">Complete Your Booking</h1>
+            <p class="section-subtitle">Fill in your details and we'll confirm via WhatsApp</p>
+            
+            <form id="booking-form" class="glass-card" style="max-width: 600px; margin: 0 auto; padding: 2rem;" data-autosave>
+                <div class="form-group">
+                    <label class="form-label required">Service Name</label>
+                    <input type="text" name="service" class="form-input" readonly required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label required">Package Name</label>
+                    <input type="text" name="package" class="form-input" readonly required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label required">Price</label>
+                    <input type="text" name="price" class="form-input" readonly required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label required">Full Name</label>
+                    <input type="text" name="name" class="form-input" placeholder="Your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label required">WhatsApp Number</label>
+                    <input type="tel" name="whatsapp" class="form-input" placeholder="+94xxxxxxxxx" required>
+                    <span class="form-help">Enter your WhatsApp number with country code</span>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label required">Email Address</label>
+                    <input type="email" name="email" class="form-input" placeholder="your@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label required">Event Date</label>
+                    <input type="date" name="eventDate" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label required">Event Time</label>
+                    <input type="time" name="eventTime" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label required">Location/Venue</label>
+                    <input type="text" name="location" class="form-input" placeholder="Event location or venue" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Special Requests</label>
+                    <textarea name="message" class="form-textarea" placeholder="Any special requirements or preferences..." maxlength="500"></textarea>
+                    <span class="form-help">Maximum 500 characters</span>
+                </div>
+                
+                <div class="form-group form-checkbox">
+                    <input type="checkbox" name="terms" id="terms" required>
+                    <label for="terms">I agree to the <a href="policy.html" target="_blank">payment and cancellation policy</a></label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block btn-lg">Confirm Booking on WhatsApp</button>
+                
+                <p style="text-align: center; margin-top: 1rem; color: var(--color-text-secondary); font-size: 0.875rem;">
+                    You'll be redirected to WhatsApp to complete your booking
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <img src="images/logo.png" alt="PICTORA Logo" class="footer-logo">
+                    <h3>PICTORA</h3>
+                    <p class="footer-tagline">Capturing Moments, Creating Stories</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="payment.html">Payment</a></li>
+                        <li><a href="policy.html#privacy">Privacy Policy</a></li>
+                        <li><a href="policy.html#terms">Terms of Service</a></li>
+                        <li><a href="policy.html#refund">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column footer-contact">
+                    <h3>Contact</h3>
+                    <p>📱 WhatsApp: +94 78 992 9233</p>
+                    <p>📧 Email: pictoraofficial.lk</p>
+                    <p>📍 Kattankudy, Sri Lanka</p>
+                    <br>
+        <div class="footer-section">  
+    <h4>Follow Us</h4>  
+    <div style="display: flex; gap: 12px; margin-top: 15px;">  
+        <a href="https://www.facebook.com/share/1Xc4SdkyMV/" target="_blank"   
+           style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); font-size: 18px; transition: all 0.3s ease; text-decoration: none;"  
+           onmouseover="this.style.background='#1877f2'; this.style.borderColor='#1877f2'; this.style.color='white'; this.style.transform='translateY(-3px)';"  
+           onmouseout="this.style.background='rgba(255, 255, 255, 0.05)'; this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.color='rgba(255, 255, 255, 0.8)'; this.style.transform='translateY(0)';"  
+           title="Facebook">  
+            <i class="fab fa-facebook-f"></i>  
+        </a>  
+          
+        <a href="https://www.instagram.com/pic_tora_?igsh=MTNxcmhhdWd1NTA3Zg==" target="_blank"   
+           style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); font-size: 18px; transition: all 0.3s ease; text-decoration: none;"  
+           onmouseover="this.style.background='linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)'; this.style.borderColor='#e1306c'; this.style.color='white'; this.style.transform='translateY(-3px)';"  
+           onmouseout="this.style.background='rgba(255, 255, 255, 0.05)'; this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.color='rgba(255, 255, 255, 0.8)'; this.style.transform='translateY(0)';"  
+           title="Instagram">  
+            <i class="fab fa-instagram"></i>  
+        </a>  
+          
+        <a href="https://www.tiktok.com/@pictora_?_r=1&_t=ZS-93TOFRjoMjZ" target="_blank"   
+           style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); font-size: 18px; transition: all 0.3s ease; text-decoration: none;"  
+           onmouseover="this.style.background='#000000'; this.style.borderColor='#00f2ea'; this.style.color='#00f2ea'; this.style.transform='translateY(-3px)';"  
+           onmouseout="this.style.background='rgba(255, 255, 255, 0.05)'; this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.color='rgba(255, 255, 255, 0.8)'; this.style.transform='translateY(0)';"  
+           title="TikTok">  
+            <i class="fab fa-tiktok"></i>  
+        </a>  
+          
+        <a href="https://youtube.com/@pic_tora?si=rgOhpAOVcmwIbuFD" target="_blank"   
+           style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); font-size: 18px; transition: all 0.3s ease; text-decoration: none;"  
+           onmouseover="this.style.background='#ff0000'; this.style.borderColor='#ff0000'; this.style.color='white'; this.style.transform='translateY(-3px)';"  
+           onmouseout="this.style.background='rgba(255, 255, 255, 0.05)'; this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.color='rgba(255, 255, 255, 0.8)'; this.style.transform='translateY(0)';"  
+           title="YouTube">  
+            <i class="fab fa-youtube"></i>  
+        </a>  
+    </div>  
+</div>  
+<br>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 PICTORA. All Rights Reserved. | Designed by CRAKS Media Agency</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/whatsapp.js"></script>
+    <script src="js/booking.js"></script>
+</body>
+</html>
