@@ -1,16 +1,24 @@
 // PICTORA - Portfolio Gallery with Lightbox
 'use strict';
 
-// Sample portfolio data - replace with actual images
-const portfolioData = [
-  { id: 1, category: 'wedding', url: 'images/portfolio/wedding-1.jpg', alt: 'Wedding Photography' },
-  { id: 2, category: 'wedding', url: 'images/portfolio/wedding-2.jpg', alt: 'Wedding Ceremony' },
-  { id: 3, category: 'prewedding', url: 'images/portfolio/3.jpg', alt: 'Pre-Wedding Shoot' },
-  { id: 4, category: 'event', url: 'images/portfolio/4.jpg', alt: 'Event Photography' },
-  { id: 5, category: 'portrait', url: 'images/portfolio/5.jpg', alt: 'Portrait Photography' },
-  { id: 6, category: 'product', url: 'images/portfolio/6.jpg', alt: 'Product Photography' },
-  // Add more images here
+// Portfolio data — 6 images per category.
+// To replace: drop your images in images/portfolio/ using the same file names below.
+const portfolioCategories = [
+  { key: 'wedding',    label: 'Wedding Photography' },
+  { key: 'prewedding', label: 'Pre-Wedding Shoot' },
+  { key: 'event',      label: 'Event Photography' },
+  { key: 'portrait',   label: 'Portrait Photography' },
+  { key: 'product',    label: 'Product Photography' }
 ];
+
+const portfolioData = portfolioCategories.flatMap((cat) =>
+  Array.from({ length: 6 }, (_, i) => ({
+    id: `${cat.key}-${i + 1}`,
+    category: cat.key,
+    url: `images/portfolio/${cat.key}-${i + 1}.jpg`,
+    alt: `${cat.label} ${i + 1}`
+  }))
+);
 
 let currentFilter = 'all';
 let currentImageIndex = 0;
