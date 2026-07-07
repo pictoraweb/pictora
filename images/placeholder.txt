@@ -1,0 +1,30 @@
+IMAGE PLACEHOLDERS
+
+Replace these placeholder text files with actual images:
+
+1. logo.jpg - Your PICTORA logo (200x200px recommended)
+2. me.jpg - About page photo (square, 800x800px recommended)
+3. hero.jpg - Homepage hero image (1920x1280px, 3:2 aspect ratio)
+
+services/ folder:
+- wedding.jpg
+- prewedding.jpg
+- event.jpg
+- portrait.jpg
+- product.jpg
+- food.jpg
+- fashion.jpg
+- realestate.jpg
+- lifestyle.jpg
+
+portfolio/ folder:
+Add 25-30 portfolio images named:
+- wedding-1.jpg, wedding-2.jpg, etc.
+- event-1.jpg, event-2.jpg, etc.
+- portrait-1.jpg, portrait-2.jpg, etc.
+
+All images should be:
+- High quality (but optimized for web)
+- Proper dimensions
+- JPG format (or WebP for better performance)
+- Under 500KB each

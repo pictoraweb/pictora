@@ -1,0 +1,367 @@
+/* PICTORA - Responsive Styles */
+/* Mobile First Approach */
+
+/* ========================================
+   MOBILE - Extra Small Devices (< 576px)
+======================================== */
+@media (max-width: 575px) {
+  :root {
+    --font-size-h1: 2rem;
+    --font-size-h2: 1.75rem;
+    --font-size-h3: 1.25rem;
+    --container-padding: 1rem;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .hero-buttons .btn {
+    width: 100%;
+  }
+  
+  .section {
+    padding: 2rem 0;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+  }
+  
+  .grid {
+    gap: 1rem;
+  }
+  
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .grid-5 {
+    grid-template-columns: 1fr;
+  }
+  
+  .package-price {
+    font-size: 2rem;
+  }
+  
+  .cta-section {
+    padding: 2rem 1rem;
+  }
+  
+  .cta-title {
+    font-size: 1.5rem;
+  }
+  
+  .cta-subtitle {
+    font-size: 1rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .cta-buttons .btn {
+    width: 100%;
+  }
+  
+  .toast {
+    right: 1rem;
+    left: 1rem;
+    bottom: 1rem;
+  }
+  
+  .scroll-top {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  .lightbox-prev,
+  .lightbox-next {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+  
+  .lightbox-prev {
+    left: 10px;
+  }
+  
+  .lightbox-next {
+    right: 10px;
+  }
+  
+  .lightbox-close {
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* ========================================
+   TABLET - Small Devices (>= 576px)
+======================================== */
+@media (min-width: 576px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ========================================
+   TABLET - Medium Devices (>= 768px)
+======================================== */
+@media (min-width: 768px) {
+  .navbar-toggle {
+    display: none;
+  }
+  
+  .navbar-menu {
+    display: flex !important;
+  }
+  
+  .mobile-menu,
+  .mobile-overlay {
+    display: none !important;
+  }
+  
+  .about-section {
+    grid-template-columns: 40% 60%;
+  }
+  
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .contact-methods {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .trust-elements {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ========================================
+   DESKTOP - Large Devices (>= 992px)
+======================================== */
+@media (min-width: 992px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .grid-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  
+  .portfolio-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .contact-methods {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .trust-elements {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .footer-content {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ========================================
+   DESKTOP - Extra Large Devices (>= 1200px)
+======================================== */
+@media (min-width: 1200px) {
+  :root {
+    --container-padding: 2rem;
+  }
+  
+  .hero-title {
+    font-size: 3.5rem;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* ========================================
+   MOBILE NAVIGATION
+======================================== */
+@media (max-width: 767px) {
+  .navbar-menu {
+    display: none;
+  }
+  
+  .navbar-toggle {
+    display: flex;
+  }
+  
+  .navbar-dropdown .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    margin-top: 0.5rem;
+    background: rgba(107, 70, 193, 0.05);
+  }
+}
+
+/* ========================================
+   PRINT STYLES
+======================================== */
+@media print {
+  .navbar,
+  .footer,
+  .scroll-top,
+  .toast,
+  .cta-section,
+  .btn,
+  button {
+    display: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  
+  .section {
+    page-break-inside: avoid;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+  
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY - REDUCED MOTION
+======================================== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .scroll-behavior-smooth {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ========================================
+   LANDSCAPE MOBILE
+======================================== */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-image img {
+    max-height: 300px;
+    object-fit: cover;
+  }
+  
+  .section {
+    padding: 1.5rem 0;
+  }
+  
+  .mobile-menu {
+    overflow-y: auto;
+  }
+}
+
+/* ========================================
+   HIGH RESOLUTION DISPLAYS
+======================================== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Optimize images for retina displays */
+  .card-image,
+  .portfolio-item img,
+  .hero-image img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* ========================================
+   DARK MODE SUPPORT (Optional)
+======================================== */
+@media (prefers-color-scheme: dark) {
+  /* Keep light theme as specified in requirements */
+  /* This is a placeholder for future dark mode implementation */
+}
+
+/* ========================================
+   TOUCH DEVICES
+======================================== */
+@media (hover: none) and (pointer: coarse) {
+  /* Increase tap target sizes for touch devices */
+  .btn,
+  button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .navbar-link {
+    padding: 0.75rem 0;
+  }
+  
+  /* Remove hover effects on touch devices */
+  .glass-card:hover,
+  .service-card:hover,
+  .portfolio-item:hover img {
+    transform: none;
+  }
+  
+  /* Show portfolio overlay by default on touch */
+  .portfolio-overlay {
+    transform: translateY(0);
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  }
+}
+
+/* ========================================
+   CONTAINER QUERIES (Modern Browsers)
+======================================== */
+@supports (container-type: inline-size) {
+  .card-container {
+    container-type: inline-size;
+  }
+  
+  @container (min-width: 400px) {
+    .card-title {
+      font-size: 1.5rem;
+    }
+  }
+}
