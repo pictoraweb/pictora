@@ -6,7 +6,7 @@
 // ========================================
 // PACKAGE DATA
 // ========================================
-const packageData = {
+let packageData = {
   // Wedding Photography groups the three wedding functions (Mehndi / Wedding / Waleema)
   wedding: {
     title: "Wedding Photography",
@@ -76,23 +76,99 @@ const packageData = {
       { name: "Premium Package", price: "Rs. 35,000 – 50,000", features: ["200 – 300 Guests", "750 Edited Photos"], popular: false }
     ],
     note: "Additional 50 Guests: Rs. 10,000"
+  },
+
+  product: {
+    title: "Product Photography",
+    packages: [
+      { name: "Basic Package", price: "Rs. 7,500", features: ["Up to 10 Products", "20 Edited Photos", "Color Grading + White Background"], popular: false },
+      { name: "Standard Package", price: "Rs. 12,500", features: ["Up to 20 Products", "40 Edited Photos", "Advanced Retouch + Color Grading"], popular: true },
+      { name: "Premium Package", price: "Rs. 20,000", features: ["Up to 40 Products", "80 Edited Photos", "Premium Retouch + Creative Lighting + Lifestyle Shots"], popular: false }
+    ]
+  },
+
+  food: {
+    title: "Food Photography",
+    packages: [
+      { name: "Basic Package", price: "Rs. 10,000", features: ["Up to 10 Dishes", "25 Edited Photos"], popular: false },
+      { name: "Standard Package", price: "Rs. 15,000", features: ["Up to 20 Dishes", "50 Edited Photos"], popular: true },
+      { name: "Premium Package", price: "Rs. 25,000", features: ["Up to 35 Dishes", "80 Edited Photos + Creative Styling"], popular: false }
+    ]
+  },
+
+  fashion: {
+    title: "Fashion / Model Photography",
+    packages: [
+      { name: "Basic Package", price: "Rs. 12,500", features: ["1 Outfit", "25 Edited Photos"], popular: false },
+      { name: "Standard Package", price: "Rs. 20,000", features: ["Up to 3 Outfits", "50 Edited Photos"], popular: true },
+      { name: "Premium Package", price: "Rs. 30,000", features: ["Up to 5 Outfits", "100 Edited Photos + Premium Skin Retouch"], popular: false }
+    ]
+  },
+
+  realestate: {
+    title: "Real Estate / Interior Photography",
+    packages: [
+      { name: "Basic Package", price: "Rs. 10,000", features: ["Small Property", "30 Edited Photos"], popular: false },
+      { name: "Standard Package", price: "Rs. 17,500", features: ["Medium Property", "50 Edited Photos"], popular: true },
+      { name: "Premium Package", price: "Rs. 25,000", features: ["Large Property", "80 Edited Photos + Detail Shots"], popular: false }
+    ]
+  },
+
+  lifestyle: {
+    title: "Lifestyle / Street Photography",
+    packages: [
+      { name: "Basic Package", price: "Rs. 7,500", features: ["20 Edited Photos"], popular: false },
+      { name: "Standard Package", price: "Rs. 12,500", features: ["40 Edited Photos"], popular: true },
+      { name: "Premium Package", price: "Rs. 18,000", features: ["75 Edited Photos + Creative Editing"], popular: false }
+    ]
   }
 };
 
 // ========================================
 // COMBO BENEFITS (applies across all packages)
 // ========================================
-const comboBenefits = [
+let comboBenefits = [
   { tier: "Basic", features: ["Free USB"] },
   { tier: "Standard", features: ["Free USB", "Free Photo Frame"] },
   { tier: "Premium", features: ["Free USB", "Free Photo Frame", "Free Album"] }
 ];
 
 // ========================================
+// LOAD LIVE PRICES FROM SUPABASE (fallback to the bundled defaults above)
+// ========================================
+let siteSettings = {};
+
+async function loadPackagesFromSupabase() {
+  try {
+    if (!window.loadSiteConfig) return;
+    const pkg = await window.loadSiteConfig(window.PACKAGES_CONFIG_KEY || 'packages');
+    if (pkg) {
+      if (pkg.packageData) packageData = pkg.packageData;
+      if (Array.isArray(pkg.comboBenefits)) comboBenefits = pkg.comboBenefits;
+    }
+    const set = await window.loadSiteConfig(window.SETTINGS_CONFIG_KEY || 'settings');
+    if (set) siteSettings = set;
+  } catch (e) {
+    // Network/offline — keep the bundled defaults.
+  }
+}
+
+// Optional promotional banner shown at the top of the packages list.
+function renderOfferBanner(container) {
+  const text = siteSettings && siteSettings.offerBanner;
+  if (!text) return;
+  const banner = document.createElement('div');
+  banner.className = 'offer-banner';
+  banner.innerHTML = `<span class="offer-banner-icon">🎉</span><span>${text}</span>`;
+  container.appendChild(banner);
+}
+
+// ========================================
 // INITIALIZE PACKAGES PAGE
 // ========================================
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
   if (window.location.pathname.includes('packages.html')) {
+    await loadPackagesFromSupabase();
     initPackagesPage();
     // Re-filter if the category changes via a #hash link while on this page
     window.addEventListener('hashchange', function() {
@@ -122,6 +198,7 @@ function renderAllPackages() {
   setHeroBack(false);
 
   container.innerHTML = '';
+  renderOfferBanner(container);
 
   Object.keys(packageData).forEach(serviceKey => {
     container.appendChild(createCategorySection(packageData[serviceKey], serviceKey));
@@ -142,6 +219,7 @@ function renderSingleCategory(serviceKey) {
   document.title = `${service.title} Packages - PICTORA`;
 
   container.innerHTML = '';
+  renderOfferBanner(container);
 
   // Icon-only back button inside the hero card (top-left)
   setHeroBack(true);
@@ -224,6 +302,7 @@ function createPackageCard(pkg, serviceKey, categoryTitle) {
 
   card.innerHTML = `
     ${pkg.popular ? '<div class="package-badge">POPULAR</div>' : ''}
+    ${pkg.offer ? `<div class="package-offer">${pkg.offer}</div>` : ''}
     <h3 class="package-name">${pkg.name}</h3>
     <div class="package-price">${pkg.price}</div>
     ${features ? `<ul class="package-features">${features}</ul>` : ''}

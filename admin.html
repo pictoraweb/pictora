@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>PICTORA Admin — Package Manager</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
+    <style>
+        .admin-wrap { max-width: 960px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+        .admin-head {
+            display: flex; align-items: center; gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
+        .admin-head img { width: 46px; height: 46px; border-radius: 12px; background:#fff; padding:5px; }
+        .admin-head h1 { font-size: 1.5rem; font-weight: 800; }
+        .admin-head .gradient-text { display:inline; }
+
+        /* Login card */
+        .admin-login {
+            max-width: 400px; margin: 4rem auto; padding: 2.5rem 2rem; text-align: center;
+        }
+        .admin-login h2 { margin-bottom: 0.4rem; }
+        .admin-login p { color: var(--dk-muted); margin-bottom: 1.5rem; font-size: 0.9rem; }
+        .admin-login input { text-align: center; letter-spacing: 2px; margin-bottom: 1rem; }
+        .admin-error { color: #ff8a8a; font-size: 0.85rem; min-height: 1.2rem; margin-top: 0.5rem; }
+
+        /* Editor */
+        .admin-toolbar {
+            position: sticky; top: 0; z-index: 20;
+            display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+            padding: 1rem 1.25rem; margin-bottom: 1.5rem; border-radius: 16px;
+            background: rgba(20,16,30,0.85);
+            backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+        .admin-status { font-size: 0.88rem; color: var(--dk-muted); }
+        .admin-status.ok { color: #7ee0b0; }
+        .admin-status.err { color: #ff8a8a; }
+        .admin-toolbar .btn { padding: 0.6rem 1.3rem; }
+
+        /* Jump nav */
+        .admin-nav { display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1.5rem; }
+        .admin-chip {
+            padding:0.45rem 0.9rem; border-radius:999px; font-size:0.82rem; font-weight:600; cursor:pointer;
+            color:#d9c9ff; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12);
+            transition: all .2s ease;
+        }
+        .admin-chip:hover { color:#fff; background:rgba(124,58,237,0.3); border-color:transparent; }
+
+        .admin-cat { margin-bottom: 1.25rem; padding: 0; overflow:hidden; }
+        .admin-cat-head {
+            display:flex; align-items:center; justify-content:space-between; gap:1rem;
+            padding: 1.1rem 1.5rem; cursor:pointer; user-select:none;
+        }
+        .admin-cat-head h2 {
+            font-size: 1.2rem; font-weight: 800; margin:0;
+            background: var(--dk-grad); -webkit-background-clip:text; background-clip:text;
+            -webkit-text-fill-color: transparent; color: transparent;
+        }
+        .admin-chev { color:#c9b3ff; transition: transform .25s ease; }
+        .admin-cat.collapsed .admin-chev { transform: rotate(-90deg); }
+        .admin-cat-body { padding: 0 1.5rem 1.5rem; }
+        .admin-cat.collapsed .admin-cat-body { display:none; }
+        .admin-tier-name-input { max-width: 260px; font-weight:700; }
+        .admin-sub-row { margin-top: 1.25rem; padding-top: 1rem; border-top:1px solid rgba(255,255,255,0.08); }
+        .admin-sub-title { font-size: 1.05rem; font-weight: 700; color:#efeaff; margin: 1.25rem 0 0.75rem; }
+
+        .admin-tier {
+            display: grid; grid-template-columns: 1fr; gap: 0.75rem;
+            padding: 1rem 1.1rem; margin-bottom: 0.9rem; border-radius: 14px;
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09);
+        }
+        .admin-tier-head { display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+        .admin-tier-name { font-weight: 700; }
+        .admin-row { display:flex; flex-direction: column; gap: 0.35rem; }
+        .admin-row label { font-size: 0.78rem; color: var(--dk-muted); font-weight: 600; }
+        .admin-price-row { display:flex; align-items:center; gap:0.75rem; flex-wrap: wrap; }
+        .admin-price-row .form-input { max-width: 220px; }
+        .admin-pop { display:flex; align-items:center; gap:0.4rem; font-size:0.85rem; color:var(--dk-muted); white-space:nowrap; }
+        .admin-note-row { margin-top: 0.5rem; }
+        textarea.admin-features { min-height: 90px; font-family: inherit; }
+        .admin-hint { font-size: 0.75rem; color: var(--dk-muted); }
+        .admin-security {
+            margin-top: 2rem; padding: 1rem 1.25rem; border-radius: 12px;
+            background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.3);
+            color:#fcd34d; font-size:0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-wrap">
+        <div class="admin-head">
+            <img src="images/logo.png" alt="PICTORA">
+            <h1><span class="gradient-text">PICTORA</span> Admin — Package Manager</h1>
+        </div>
+
+        <!-- Login gate -->
+        <div id="login" class="glass-card admin-login">
+            <h2>Admin Access</h2>
+            <p>Enter the admin password to manage package prices.</p>
+            <input type="password" id="adminPassword" class="form-input" placeholder="Password" autocomplete="current-password">
+            <button id="loginBtn" class="btn btn-primary btn-block">Unlock</button>
+            <div class="admin-error" id="loginError"></div>
+        </div>
+
+        <!-- Editor -->
+        <div id="editor" hidden>
+            <div class="admin-toolbar">
+                <div class="admin-status" id="status">Loading…</div>
+                <div style="display:flex; gap:0.6rem;">
+                    <button id="reloadBtn" class="btn btn-outline">Reload</button>
+                    <button id="saveBtn" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            <div id="editorBody"></div>
+            <div class="admin-security">
+                ⚠ This panel is protected only by a password. For stronger security, enable Supabase Auth and restrict the write policies to authenticated users.
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/packages.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

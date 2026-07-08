@@ -73,6 +73,52 @@ const SERVICE_CONFIG = {
       { name: 'guests',    label: 'Approx. Number of Guests',  type: 'number', required: true, min: 1 },
       { name: 'duration',  label: 'Coverage Duration (hours)', type: 'number', required: false, min: 1 }
     ]
+  },
+  product: {
+    title: 'Product Photography',
+    dateLabel: 'Preferred Date',
+    locationLabel: 'Shoot Location',
+    fields: [
+      { name: 'productCount', label: 'Number of Products', type: 'number', required: true, min: 1 },
+      { name: 'background',   label: 'Background Preference', type: 'select', required: false, options: ['White', 'Custom', 'Lifestyle'] }
+    ]
+  },
+  food: {
+    title: 'Food Photography',
+    dateLabel: 'Preferred Date',
+    locationLabel: 'Shoot Location',
+    fields: [
+      { name: 'dishCount', label: 'Number of Dishes', type: 'number', required: true, min: 1 },
+      { name: 'styling',   label: 'Styling Notes',     type: 'text',   required: false, placeholder: 'e.g., rustic, bright, minimal' }
+    ]
+  },
+  fashion: {
+    title: 'Fashion / Model Photography',
+    dateLabel: 'Preferred Date',
+    locationLabel: 'Shoot Location',
+    fields: [
+      { name: 'models',  label: 'Number of Models', type: 'number', required: true, min: 1 },
+      { name: 'outfits', label: 'Number of Outfits', type: 'number', required: false, min: 1 },
+      { name: 'shootType', label: 'Shoot Type', type: 'select', required: false, options: ['Indoor / Studio', 'Outdoor'] }
+    ]
+  },
+  realestate: {
+    title: 'Real Estate / Interior Photography',
+    dateLabel: 'Preferred Date',
+    locationLabel: 'Property Address',
+    fields: [
+      { name: 'propertySize', label: 'Property Size', type: 'select', required: true, options: ['Small', 'Medium', 'Large'] },
+      { name: 'rooms',        label: 'Number of Rooms', type: 'number', required: false, min: 1 }
+    ]
+  },
+  lifestyle: {
+    title: 'Lifestyle / Street Photography',
+    dateLabel: 'Preferred Date',
+    locationLabel: 'Preferred Location',
+    fields: [
+      { name: 'people', label: 'Number of People', type: 'number', required: false, min: 1 },
+      { name: 'concept', label: 'Concept / Theme', type: 'text', required: false, placeholder: 'e.g., urban, candid, travel' }
+    ]
   }
 };
 

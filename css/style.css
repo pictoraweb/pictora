@@ -2828,3 +2828,40 @@ body {
   opacity: 1;
 }
 
+
+/* ==================================================================
+   🎉 OFFERS — package offer badge + site offer banner
+================================================================== */
+.package-offer {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(135deg, #ff5f8f 0%, #d6266a 100%);
+  box-shadow: 0 8px 20px rgba(214, 38, 106, 0.45), inset 0 1px 0 rgba(255,255,255,0.35);
+  z-index: 2;
+}
+
+.offer-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 0 auto 2.5rem;
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(124,58,237,0.9), rgba(214,38,106,0.85));
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 14px 40px rgba(124, 58, 237, 0.35), inset 0 1px 0 rgba(255,255,255,0.3);
+}
+.offer-banner-icon { font-size: 1.3rem; }
